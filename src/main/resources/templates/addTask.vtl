@@ -1,0 +1,26 @@
+addTask.vtl
+
+<h2>$category.getName()</h2>
+
+<ul>
+
+
+#foreach($task in $tasks)
+<li><h4>$task.getDescription()</h4></li>
+<form action="/delete/task/$task.getId()" method="post">
+<input id="categoryId" name="categoryId" type=hidden value="$category.getId()">
+<button type="submit" id="$task.getId()" name="$task.getId()" class="btn btn-danger">
+  Delete Task</button></h4>
+</form>
+#end
+</ul>
+
+
+<form action="/:id" method="post">
+  <input id="categoryId" name="categoryId" type=hidden value="$category.getId()">
+  <label>Add a Task</label>
+  <input type="text" name="taskName" id="taskName" required>
+  <button type="submit" name="taskButton" class="btn btn-info">Submit</button>
+</form>
+
+<a href="/">Go Back Home</a>
